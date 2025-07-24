@@ -21,7 +21,6 @@ import {
   Typography,
 } from "@mui/joy";
 import { useState } from "react";
-import "./App.css";
 
 type Delivery = {
   reward?: number;
@@ -161,7 +160,10 @@ function App() {
             }
           >
             <Option value={1}>1件</Option>
-            <Option value={2}>2件</Option>
+
+            {(original?.deliveryCount ?? 0) >= 3 && (
+              <Option value={2}>2件</Option>
+            )}
           </Select>
         </FormControl>
       </Card>
